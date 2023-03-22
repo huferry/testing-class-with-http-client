@@ -2,16 +2,21 @@
 
 public class ZipCodeService
 {
+    private readonly IHttpClientAdapter _httpClientAdapter;
+
+    public ZipCodeService(IHttpClientAdapter httpClientAdapter)
+    {
+        _httpClientAdapter = httpClientAdapter;
+    }
+
     public async Task<string> GetZipCode(string customerId)
     {
         var uri = new Uri($"http://utomo.eu/api/zipcode/{customerId}");
-        
+
         var request = new HttpRequestMessage(HttpMethod.Get, uri);
 
-        HttpClient client = new();
+        var response = await _httpClientAdapter.SendAsync(request);
 
-        var response = await client.SendAsync(request);
-        
         return await response
             .EnsureSuccessStatusCode()
             .Content

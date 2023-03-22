@@ -6,6 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ZipCodeService, ZipCodeService>();
+builder.Services.AddScoped<IHttpClientAdapter, HttpClientAdapter>();
 
 var app = builder.Build();
 
