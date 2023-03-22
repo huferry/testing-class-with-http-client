@@ -1,4 +1,3 @@
-using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,11 +17,11 @@ public class ZipCodeServiceUnitTests
     {
         // arrange
         var expectation = "73091";
-        var customerId = "ABC-918-XY";
+        var customerId = 12;
 
         var response = new HttpResponseMessage
         {
-            Content = new StringContent(expectation)
+            Content = new StringContent($"{{\"zipcode\": \"{expectation}\"}}")
         };
 
         _httpClientAdapterMock
@@ -37,10 +36,10 @@ public class ZipCodeServiceUnitTests
     }
     
     [Test]
-    public async Task GetZipCode_WhenUnsuccessful_Throws()
+    public void GetZipCode_WhenUnsuccessful_Throws()
     {
         // arrange
-        var customerId = "ABC-918-XY";
+        var customerId = 15;
 
         var response = new HttpResponseMessage
         {
