@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniCrm", "MiniCrm\MiniCrm.csproj", "{9BC77CAA-1444-4E0E-90DE-3A5B81FA169D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniCrm.UnitTests", "MiniCrm.UnitTests\MiniCrm.UnitTests.csproj", "{2622389E-F6F9-4232-A063-42B946E70413}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BC77CAA-1444-4E0E-90DE-3A5B81FA169D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC77CAA-1444-4E0E-90DE-3A5B81FA169D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC77CAA-1444-4E0E-90DE-3A5B81FA169D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BC77CAA-1444-4E0E-90DE-3A5B81FA169D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2622389E-F6F9-4232-A063-42B946E70413}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2622389E-F6F9-4232-A063-42B946E70413}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2622389E-F6F9-4232-A063-42B946E70413}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2622389E-F6F9-4232-A063-42B946E70413}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
