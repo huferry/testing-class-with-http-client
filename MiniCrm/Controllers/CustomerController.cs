@@ -8,11 +8,12 @@ namespace MiniCrm.Controllers;
 [Route("[controller]")]
 public class CustomerController : ControllerBase
 {
-    private readonly Customer[] _data = {
-        new() { Id = "A", Name = "John"},
-        new() { Id = "B", Name = "Jack"},
-        new() { Id = "C", Name = "Mark"},
-        new() { Id = "D", Name = "Luke"},
+    private Customer[] Data => new []
+    {
+        new Customer { Id = 1, Name = "John"},
+        new Customer { Id = 2, Name = "Jack"},
+        new Customer { Id = 3, Name = "Mark"},
+        new Customer { Id = 4, Name = "Luke"},
     };
 
     private readonly ZipCodeService _zipCodeService;
@@ -22,11 +23,21 @@ public class CustomerController : ControllerBase
         _zipCodeService = zipCodeService;
     }
 
-    [HttpGet("{customerId}")]
-    public async Task<IActionResult> GetCustomer(string customerId)
+    [HttpGet]
+    public async IAsyncEnumerable<Customer> GetAllCustomers()
     {
-        var customer = _data
-            .SingleOrDefault(c => c.Id.Equals(customerId, StringComparison.InvariantCultureIgnoreCase));
+        foreach (var customer in Data)
+        {
+            customer.Zipcode = await _zipCodeService.GetZipCode(customer.Id);
+            yield return customer;
+        }
+    }
+    
+    [HttpGet("{customerId}")]
+    public async Task<IActionResult> GetCustomer(int customerId)
+    {
+        var customer = Data
+            .SingleOrDefault(c => c.Id == customerId);
 
         if (customer is null) return NotFound();
         
